@@ -44,3 +44,26 @@ async function fetchJson(url, options) {
     }
   }
 }
+
+const observations = []
+
+function nextId() {
+  const uint32 = window.crypto.getRandomValues(new Uint32Array(1))[0]
+  return uint32.toString(16)
+}
+
+export async function createObservation(observation, signal) {
+  const now = new Date().toISOString()
+  const newObservation = {
+    ...observation,
+    observation_id: nextId(),
+    created_at: now,
+    updated_at: now,
+  }
+  observations.push(newObservation)
+  return newObservation
+}
+
+export async function listObservations(signal) {
+  return observations
+}
