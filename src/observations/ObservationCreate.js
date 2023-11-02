@@ -11,6 +11,8 @@ function ObservationCreate() {
         latitude: "",
         longitude: "",
         sky_condition: "",
+        air_temperature: "",
+        air_temperature_unit: "F",
     })
 
     function cancelHandler() {
@@ -72,6 +74,44 @@ function ObservationCreate() {
                     required={true}
                 />
                 <small className="form-text text-muted">Enter a value between -180 and 180.</small>
+            </div>
+        </div>
+        <div className="row mb-3">
+            <div className="col-6">
+                <label className="form-label" htmlFor="air_temperature">
+                    Air Temperature
+                </label>
+                <input
+                    className="form-control"
+                    id="air_temperature"
+                    name="air_temperature"
+                    type="number"
+                    max={(observation.air_temperature_unit === "F" ? "107" : "224")}
+                    min={(observation.air_temperature_unit === "F" ? "-60" : "-50")}                    
+                    value={observation.air_temperature}
+                    onChange={changeHandler}
+                    required={true}
+                />
+                <small className="form-text text-muted">
+                    {observation.air_temperature_unit === "F" ? "Enter a value between -60 and 224." : "Enter a value between -50 and 107."}
+                </small>
+            </div>
+            <div className="col-6">
+                <label className="form-label" htmlFor="air_temperature_unit">
+                    Air Temperature Unit
+                </label>
+                <select
+                className="form-control"
+                id="air_temperature_unit"
+                name="air_temperature_unit"
+                value={observation.air_temperature_unit}
+                onChange={changeHandler}
+                required={true}
+            >
+                <option value="F">Fahrenheit</option>
+                <option value="C">Celsius</option>
+                </select>
+                <small className="form-text text-muted">Select temperature unit.</small>
             </div>
         </div>
         <div className="mb-3">

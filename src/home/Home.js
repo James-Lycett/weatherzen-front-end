@@ -26,6 +26,7 @@ function Home() {
           <td>{observation.latitude}</td>
           <td>{observation.longitude}</td>
           <td>{observation.sky_condition}</td>
+          <td>{observation.air_temperature + observation.air_temperature_unit}</td>
           <td>{observation.created_at}</td>
           <td>
             <button 
@@ -49,6 +50,7 @@ function Home() {
           <th scope="col">Latitude</th>
           <th scope="col">Longitude</th>
           <th scope="col">Sky Condition</th>
+          <th scope="col">Air Temperature</th>
           <th scope="col">Created</th>
         </tr>
         </thead>
