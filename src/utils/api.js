@@ -65,3 +65,23 @@ export async function listObservations(signal) {
   }
   return await fetchJson(url, options)
 }
+
+export async function readObservation(id, signal) {
+  const url = `${API_BASE_URL}/observations/edit/${id}`
+  const options = {
+    headers,
+    signal
+  }
+  return await fetchJson(url, options)
+}
+
+export async function updateObservation(id, observation, signal) {
+  const url = `${API_BASE_URL}/observations/edit/${id}`
+  const options = {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({ data: observation}),
+    signal,
+  }
+  return await fetchJson(url, options)
+}
