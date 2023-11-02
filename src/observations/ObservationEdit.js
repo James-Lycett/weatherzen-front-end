@@ -8,6 +8,7 @@ function ObservationEdit() {
     const history = useHistory()
     const [error, setError] = useState(null)
 
+    // initializes to blank form until API data is recieved to autofill form fields
     const [observation, setObservation] = useState({ 
         latitude: "",
         longitude: "",
@@ -16,6 +17,7 @@ function ObservationEdit() {
         air_temperature_unit: "",
     })
 
+    // loads observation data from API
     useEffect(() => {
         async function getObservation() {
             const dbData = await readObservation(id)
@@ -33,10 +35,12 @@ function ObservationEdit() {
         .then(setObservation)               
     }, [id])
 
+    // returns to home page
     function cancelHandler() {
         history.push("/")
     }
 
+    // updates state as user types
     function changeHandler({ target: { name, value }}) {
         setObservation((previousObservation) => ({
             ...previousObservation,
@@ -44,6 +48,7 @@ function ObservationEdit() {
         }))
     }
 
+    // sends updated observation to API then returns to home page
     function submitHandler(event) {
         event.preventDefault()
         updateObservation(id, observation)

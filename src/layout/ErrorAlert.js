@@ -1,5 +1,6 @@
 import React from "react";
 
+// popup with message when error
 function ErrorAlert({ error }) {
   return (
     error && (

@@ -8,6 +8,7 @@ function Home() {
   const [observations, setObservations] = useState([])
   const [error, setError] = useState(null)
 
+  // loads existing observations
   useEffect(() => {
     const abortController = new AbortController()
     listObservations(abortController.signal)
@@ -16,10 +17,12 @@ function Home() {
     return () => abortController.abort()
   }, [])
 
+  // navigates to edit observation page
   function editButtonHandler(observationId) {
     history.push(`/observations/edit/${observationId}`)
   }
 
+  // observation table body
   const tableRows = observations.map((observation) => (
         <tr key={observation.observation_id}>
           <th scope="row">{observation.observation_id}</th>          
@@ -42,7 +45,7 @@ function Home() {
   return (
     <main>
       <h1>Home</h1>
-      <ErrorAlert error={error} />
+      <ErrorAlert error={error} /> 
       <table className="table">
       <thead>
         <tr>

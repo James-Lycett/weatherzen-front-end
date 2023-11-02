@@ -7,6 +7,7 @@ function ObservationCreate() {
     const history = useHistory()
     const [error, setError] = useState(null)
 
+    // formatted form data object initialized as blank form
     const [observation, setObservation] = useState({ 
         latitude: "",
         longitude: "",
@@ -15,10 +16,12 @@ function ObservationCreate() {
         air_temperature_unit: "F",
     })
 
+    // returns to home page
     function cancelHandler() {
         history.push("/")
     }
 
+    // sends new observation to API then returns to home page
     function submitHandler(event) {
         event.preventDefault()
         createObservation(observation)
@@ -28,6 +31,7 @@ function ObservationCreate() {
         .catch(setError)
     }
 
+    // updates state as user types
     function changeHandler({ target: { name, value } }) {
         setObservation((previousObservation) => ({
             ...previousObservation,

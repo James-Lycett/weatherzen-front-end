@@ -45,7 +45,7 @@ async function fetchJson(url, options) {
   }
 }
 
-
+// formats 'create observation' form data for POST request
 export async function createObservation(observation, signal) {
   const url = `${API_BASE_URL}/observations`
   const options = {
@@ -57,6 +57,7 @@ export async function createObservation(observation, signal) {
   return await fetchJson(url, options)
 }
 
+// GET request for all observations
 export async function listObservations(signal) {
   const url = `${API_BASE_URL}/observations`
   const options = {
@@ -66,6 +67,7 @@ export async function listObservations(signal) {
   return await fetchJson(url, options)
 }
 
+// GET request for single observation by observation_id
 export async function readObservation(id, signal) {
   const url = `${API_BASE_URL}/observations/edit/${id}`
   const options = {
@@ -75,6 +77,7 @@ export async function readObservation(id, signal) {
   return await fetchJson(url, options)
 }
 
+// formats 'edit observation' form data for PUT request
 export async function updateObservation(id, observation, signal) {
   const url = `${API_BASE_URL}/observations/edit/${id}`
   const options = {
