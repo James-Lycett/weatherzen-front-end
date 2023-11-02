@@ -52,6 +52,7 @@ function ObservationEdit() {
     
     return (
         <>
+        <h1>Edit Observation</h1>
         <form onSubmit={submitHandler} className="mb-4">
         <ErrorAlert error={error} />
         <div className="row mb-3">

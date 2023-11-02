@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { listObservations } from "../utils/api"
 import ErrorAlert from "../layout/ErrorAlert"
 
 function Home() {
+  const history = useHistory()
   const [observations, setObservations] = useState([])
   const [error, setError] = useState(null)
 
@@ -14,13 +16,25 @@ function Home() {
     return () => abortController.abort()
   }, [])
 
+  function editButtonHandler(observationId) {
+    history.push(`/observations/edit/${observationId}`)
+  }
+
   const tableRows = observations.map((observation) => (
         <tr key={observation.observation_id}>
-          <th scope="row">{observation.observation_id}</th>
+          <th scope="row">{observation.observation_id}</th>          
           <td>{observation.latitude}</td>
           <td>{observation.longitude}</td>
           <td>{observation.sky_condition}</td>
           <td>{observation.created_at}</td>
+          <td>
+            <button 
+            type="button" 
+            className="btn btn-secondary" 
+            onClick={() => {editButtonHandler(observation.observation_id)}}
+            >Edit
+            </button>
+          </td>
         </tr>
   ));
 
