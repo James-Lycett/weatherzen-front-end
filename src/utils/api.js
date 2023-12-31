@@ -47,7 +47,7 @@ async function fetchJson(url, options) {
 
 // formats 'create observation' form data for POST request
 export async function createObservation(observation, signal) {
-  const url = `${API_BASE_URL}/observations`
+  const url = `${REACT_APP_API_BASE_URL}/observations`
   const options = {
     method: "POST",
     headers,
@@ -59,7 +59,7 @@ export async function createObservation(observation, signal) {
 
 // GET request for all observations
 export async function listObservations(signal) {
-  const url = `${API_BASE_URL}/observations`
+  const url = `${REACT_APP_API_BASE_URL}/observations`
   const options = {
     headers,
     signal
@@ -69,7 +69,7 @@ export async function listObservations(signal) {
 
 // GET request for single observation by observation_id
 export async function readObservation(id, signal) {
-  const url = `${API_BASE_URL}/observations/edit/${id}`
+  const url = `${REACT_APP_API_BASE_URL}/observations/edit/${id}`
   const options = {
     headers,
     signal
@@ -79,7 +79,7 @@ export async function readObservation(id, signal) {
 
 // formats 'edit observation' form data for PUT request
 export async function updateObservation(id, observation, signal) {
-  const url = `${API_BASE_URL}/observations/edit/${id}`
+  const url = `${REACT_APP_API_BASE_URL}/observations/edit/${id}`
   const options = {
     method: "PUT",
     headers,
