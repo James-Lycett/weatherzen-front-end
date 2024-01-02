@@ -14,7 +14,7 @@ function Layout() {
       <Header />
       <Menu />
     </div>
-      <div className="container ">
+      <div className="container">
         <Switch>
           <Route path="/observations/new">
             <ObservationCreate />
