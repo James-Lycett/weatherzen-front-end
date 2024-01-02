@@ -10,11 +10,11 @@ import ObservationEdit from "../observations/ObservationEdit";
 function Layout() {
   return (
     <>
-    <div className="container-fluid">
+    <div className="container-fluid px-0">
       <Header />
       <Menu />
     </div>
-      <div className="container">
+      <div className="container ">
         <Switch>
           <Route path="/observations/new">
             <ObservationCreate />
