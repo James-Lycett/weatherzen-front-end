@@ -48,7 +48,7 @@ function Home() {
       <ErrorAlert error={error} />
       <div className="table-responsive">
       <table className="table">
-      <thead>
+      <thead data-bs-theme="dark">
         <tr>
           <th scope="col">#</th>
           <th scope="col">Latitude</th>
