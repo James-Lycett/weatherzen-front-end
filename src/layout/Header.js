@@ -11,7 +11,7 @@ function Header() {
   return (
     <div className="jumbotron jumbotron-fluid text-white mb-0" style={style}>
       <div className="container">
-        <h1 className="display-1">WeatherZen</h1>
+        <h1>WeatherZen</h1>
         <p className="lead">Crowdsourcing local weather observations!</p>
       </div>
     </div>

@@ -45,7 +45,8 @@ function Home() {
   return (
     <main>
       <h1>Home</h1>
-      <ErrorAlert error={error} /> 
+      <ErrorAlert error={error} />
+      <div className="table-responsive">
       <table className="table">
       <thead>
         <tr>
@@ -61,6 +62,7 @@ function Home() {
         {tableRows}
         </tbody>
       </table>
+      </div>
     </main>
   );
 }

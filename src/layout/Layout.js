@@ -10,8 +10,10 @@ import ObservationEdit from "../observations/ObservationEdit";
 function Layout() {
   return (
     <>
+    <div className="container-fluid">
       <Header />
       <Menu />
+    </div>
       <div className="container">
         <Switch>
           <Route path="/observations/new">
