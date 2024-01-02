@@ -48,7 +48,6 @@ function Home() {
       <ErrorAlert error={error} />
       <div className="table-responsive">
       <table className="table">
-      <div data-bs-theme="dark">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -59,7 +58,6 @@ function Home() {
           <th scope="col">Created</th>
         </tr>
         </thead>
-    </div>
         <tbody>
         {tableRows}
         </tbody>
