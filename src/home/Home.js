@@ -25,7 +25,7 @@ function Home() {
   // observation table body
   const tableRows = observations.map((observation) => (
         <tr key={observation.observation_id}>
-          <th scope="row">{observation.observation_id}</th>          
+          <th scope="row">{observation.observation_id}</th>
           <td>{observation.latitude}</td>
           <td>{observation.longitude}</td>
           <td>{observation.sky_condition}</td>
@@ -42,29 +42,35 @@ function Home() {
         </tr>
   ));
 
-  return (
-    <main>
-      <h1>Home</h1>
-      <ErrorAlert error={error} />
-      <div className="table-responsive">
-      <table className="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Latitude</th>
-          <th scope="col">Longitude</th>
-          <th scope="col">Sky Condition</th>
-          <th scope="col">Air Temperature</th>
-          <th scope="col">Created</th>
-        </tr>
-        </thead>
-        <tbody>
-        {tableRows}
-        </tbody>
-      </table>
-      </div>
-    </main>
-  );
+  if (observations.length > 0) {
+    return (
+      <main>
+        <h1>Home</h1>
+        <ErrorAlert error={error} />
+        <div className="table-responsive">
+        <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Latitude</th>
+            <th scope="col">Longitude</th>
+            <th scope="col">Sky Condition</th>
+            <th scope="col">Air Temperature</th>
+            <th scope="col">Created</th>
+          </tr>
+          </thead>
+          <tbody>
+          {tableRows}
+          </tbody>
+        </table>
+        </div>
+      </main>
+    );
+  } else {
+    return (
+      <p>The server spins down after a period of inactivity in order to save me money. If you don't see anything here give it a minute and reload the page.</p>
+    )
+  }
 }
 
 export default Home;
