@@ -25,7 +25,6 @@ function Home() {
   // observation table body
   const tableRows = observations.map((observation) => (
         <tr key={observation.observation_id}>
-          <th scope="row">{observation.observation_id}</th>
           <td>{observation.latitude}</td>
           <td>{observation.longitude}</td>
           <td>{observation.sky_condition}</td>
@@ -51,7 +50,6 @@ function Home() {
         <table className="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Latitude</th>
             <th scope="col">Longitude</th>
             <th scope="col">Sky Condition</th>
@@ -60,7 +58,7 @@ function Home() {
           </tr>
           </thead>
           <tbody>
-          {tableRows}
+          {tableRows.reverse()}
           </tbody>
         </table>
         </div>
